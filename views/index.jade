@@ -1,0 +1,34 @@
+extends layout
+
+block content
+  script(src='//cdn.optimizely.com/js/8269995381.js')
+  script().
+    function HellClicked() {
+      var optimizelyClientInstance;
+      var url = 'https://cdn.optimizely.com/json/8269995381.json';
+      window.fetch(url, { mode: 'cors' })
+        .then((datafile) => {
+          window.optimizely.push({
+            "type": "event",
+            "eventName": "select_hell",
+            "setUserId": #{cookie}
+          });
+          alert('Thank you for your vote!');
+        });
+    }
+    function DogClicked() {
+      var optimizelyClientInstance;
+      var url = 'https://cdn.optimizely.com/json/8269995381.json';
+      window.fetch(url, { mode: 'cors' })
+        .then((datafile) => {
+          window.optimizely.push({
+            "type": "event",
+            "eventName": "select_dog",
+            "setUserId": #{cookie}
+          });
+          alert('Thank you for your vote!');
+        });
+    }
+  h1= title
+  each option in options
+    input(type='button', onclick=option.func, value=option.value)

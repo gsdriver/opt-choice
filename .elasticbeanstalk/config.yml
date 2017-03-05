@@ -1,0 +1,15 @@
+branch-defaults:
+  default:
+    environment: Sample-env-2
+    group_suffix: null
+global:
+  application_name: ABTest
+  branch: null
+  default_ec2_keyname: null
+  default_platform: node.js
+  default_region: us-west-2
+  profile: eb-cli
+  repository: null
+  sc: null
+deploy:
+  artifact: ABTest.zip
